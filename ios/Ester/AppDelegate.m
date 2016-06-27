@@ -54,6 +54,18 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+
+  NSArray *allPngImageNames = [[NSBundle mainBundle] pathsForResourcesOfType:@"png" inDirectory:nil];
+  for (NSString *imgName in allPngImageNames){
+    if ([imgName containsString:@"LaunchImage"]){
+      UIImage *img = [UIImage imageNamed:imgName];
+
+      if (img.scale == [UIScreen mainScreen].scale && CGSizeEqualToSize(img.size, [UIScreen mainScreen].bounds.size)) {
+        rootView.backgroundColor = [UIColor colorWithPatternImage:img];
+      }
+    }
+  }
+
   return YES;
 }
 

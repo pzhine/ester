@@ -1,8 +1,17 @@
 import Component from 'react-pure-render/component';
 import React, { PropTypes } from 'react';
 import start from '../../common/app/start';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+});
 
 class App extends Component {
 
@@ -17,7 +26,7 @@ class App extends Component {
     if (!initComplete) return null;
 
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={styles.container}>
         <Text>Hello World</Text>
       </View>
     );
